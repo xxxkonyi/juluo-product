@@ -1,0 +1,98 @@
+<div class="JL-wraper-content">
+    <div class="JL-page-bar">
+        <span>您所在位置：</span>
+        <ul>
+            <li><a href="">我的聚会</a><i>&rsaquo;</i></li>
+            <li><a href="">峨眉山登顶之旅</a></li>
+        </ul>
+    </div>
+    <div class="JL-active-content" ng-controller="partyDetail">
+        <div class="JL-active-content-top">
+            <div class="JL-active-content-left JL-acitve-state JL-active-content-h350">
+                <img ng-src="{{party.poster}}"/>
+
+                <div class="JL-party-tag JL-party-plan-cancel"
+                     ng-if="party.partyStatus == 'CANCELED'">
+                    已取消
+                </div>
+                <div class="JL-party-tag JL-party-plan-end"
+                     ng-if="party.partyStatus == 'COMPLETED'">
+                    已结束
+                </div>
+                <div class="JL-party-tag JL-party-plan-doing"
+                     ng-if="party.partyStatus == 'STARTING'">
+                    已开始
+                </div>
+                <div class="JL-party-tag JL-party-planning"
+                     ng-if="party.partyStatus == 'UNSTART'">
+                    未开始
+                </div>
+            </div>
+            <div class="JL-active-content-right JL-active-content-h350">
+                <div class="JL-active-info">
+                    <label class="JL-active-title" ng-bind="party.title">峨眉山登顶之旅</label>
+                    <span class="JL-active-introduce" ng-bind="party.shortDescription">四大佛教名山、金顶看日出</span>
+
+                    <div class="JL-active-time-location">
+                        <div class="JL-active-time">
+                            <span ng-bind="party.startTime | date : 'yyyy年MM月dd日 hh:mm'">2015年7月18日 08:00</span>
+                            <span ng-bind="party.endTime | date : 'yyyy年MM月dd日 hh:mm'">2015年7月19日 18:00</span>
+                        </div>
+                        <div class="JL-active-location">
+                            <span ng-if="party.address" ng-bind="party.address" style="width: 150px;"
+                                  title="{{party.address}}">四川省乐山峨眉山</span>
+                        </div>
+                        <div class="JL-active-state" style="text-align: center;"><!--
+                            <a class="JL-btn JL-active-btn" ng-if="party.partyStatus == 'COMPLETED'"
+                               ng-href="#/detail/{{party.id}}">查看详情</a>-->
+                            <span class="JL-span-center" ng-if="party.partyStatus == 'COMPLETED'">活动已结束</span>
+                            <button class="JL-btn JL-active-btn JL-active-btn-center"
+                                    ng-if="party.partyStatus == 'STARTING'">添加回忆
+                            </button>
+                            <button class="JL-btn JL-active-btn JL-active-btn-center"
+                                    ng-if="party.partyStatus == 'UNSTART'" ng-click="applyParty(party.id)">我要报名
+                            </button>
+                            <!--<a class="JL-btn JL-btn-disabled JL-active-btn" href="">我也要报名</a>-->
+                        </div>
+                        <div class="JL-active-content-person">
+                            <span>{{coutJoinParty}}位小伙伴在路上</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="JL-active-content-introduce">
+            <div class="JL-active-content-left JL-active-content-h240">
+                <div class="JL-active-content-introduce-text" ng-bind="party.description">
+                    <p>中国佛教的四大名山，景区面积154平方公里。最高峰万佛顶海拔3099米。有“秀甲天下”之美誉。可以再金顶欣赏“日出”、“云海”、“佛光”和“圣灯”四大绝景。
+                        峨眉新十大景点：金顶金佛、万佛朝宗、小平情缘、清音平湖、幽谷灵猴、第一山亭、摩崖石刻、秀甲瀑布、迎宾滩、名山起点。</p>
+
+                    <p>Day01:报国寺—神水阁—清音阁—自然生态区—一线天—九老洞—洗象池</p>
+
+                    <p>Day02:洗象池—接引殿—金顶索道—金顶—千佛顶—万</p>
+
+                    <p>Day01: </p>
+
+                    <p>乐山到峨眉：20元/人,门票：180元/人,午餐：30元/人,晚餐：50元/人,住宿：150元/人</p>
+
+                    <p>Day02: </p>
+
+                    <p>索道：60元/人,早餐：20元/人,午餐：50元/人,纪念品：100元/人（自选）</p>
+                </div>
+            </div>
+            <div class="JL-active-content-right">
+                <div class="JL-active-content-share">
+                    <img src="../images/QRcode.jpg" class="JL-active-content-share-QRcode"/>
+                    <span>扫码可分享</span>
+                    <ul>
+                        <li class="JL-active-content-share-QQ"></li>
+                        <li class="JL-active-content-share-QZ"></li>
+                        <li class="JL-active-content-share-WX"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer ui-view="footer">
+    </footer>
+</div>

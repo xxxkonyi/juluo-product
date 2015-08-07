@@ -1,0 +1,39 @@
+<div class="JL-header">
+    <div class="JL-header-logo">
+        <a ui-sref="index" class="JL-link">
+            <img src="../images/logo.png" alt="聚落"/>
+        </a>
+    </div>
+    <nav class="JL-header-nav">
+        <ul>
+            <li><a ui-sref="index" ng-class="{'JL-header-nav-active':(navActive == 'index')}">首页</a></li>
+            <li><a ui-sref="createparty" ng-class="{'JL-header-nav-active':(navActive == 'createparty')}">发起聚会</a></li>
+            <li><a href="#">关于我们</a></li>
+            <li><a ui-sref="myparty" ng-class="{'JL-header-nav-active':(navActive == 'myparty')}" ng-show="isLoggedIn">我的聚会</a></li>
+        </ul>
+    </nav>
+    <div class="JL-header-user">
+        <div class="JL-header-joinus" ng-hide="isLoggedIn" ng-click="showLoginForm()">
+            加入我们
+        </div>
+        <div class="JL-header-userinfo" ng-show="isLoggedIn" ng-mouseenter="showDropdown()" ng-mouseleave="showDropdown()">
+            <div class="JL-header-userinfo-left">
+                <a href="javascript:;"><img src="../images/user.jpg"/></a>
+            </div>
+            <div class="JL-header-userinfo-right">
+                <div class="JL-header-userinfo-name">
+                    <label ng-bind="user.username"></label>
+                    <i></i>
+                </div>
+                <div class="JL-header-userinfo-dropdown" ng-show="dropdownShowOrHide">
+                    <ul>
+                        <li><a href="">我的资料</a></li>
+                        <li><a href="">我的聚会</a></li>
+                        <li><a href="">我的帮派</a></li>
+                        <li ng-click="logout()">退出</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

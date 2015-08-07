@@ -1,0 +1,114 @@
+<div class="JL-wraper-content">
+    <div class="JL-page-bar">
+        <span>您所在位置：</span>
+        <ul>
+            <li><a href="">发起聚会</a></li>
+        </ul>
+    </div>
+    <div class="JL-active-content" ng-controller="createParty">
+        <form class="JL-form" ng-submit="createSubmit()">
+            <input type="text" class="JL-hidden" ng-model="parties.location.longitude" name="longitude"/>
+            <input type="text" class="JL-hidden" ng-model="parties.location.latitude" name="latitude"/>
+
+            <div class="JL-party-create-content">
+                <div class="JL-party-create-content-title">
+                    <h1 class="JL-party-create-content-h1 JL-party-create-icon-1">给伙伴们介绍一下活动内容</h1>
+                </div>
+                <div class="JL-form-body">
+                    <div class="JL-form-group">
+                        <label class="JL-form-required">标题</label>
+
+                        <div class="JL-input-group">
+                            <input type="text" ng-model="parties.title" required placeholder="给自己的聚会取个响亮的名字"/>
+                        </div>
+                    </div>
+                    <div class="JL-form-group">
+                        <label class="JL-form-required">亮点</label>
+
+                        <div class="JL-input-group">
+                            <input type="text" ng-model="parties.shortDescription" required placeholder="给伙伴们介绍一下活动内容"/>
+                        </div>
+                    </div>
+                    <div class="JL-form-group">
+                        <label class="JL-form-required">时间</label>
+
+                        <div class="JL-input-group">
+                            <div class="JL-input-datetime">
+                                <input class="JL-input-date date-picker" required ng-model="myparties.startTimeDate"
+                                       type="text"/>
+                                <input class="JL-input-time timepicker" required ng-model="myparties.startTimeTime"
+                                       type="text"/>
+                            </div>
+                            <span class="JL-input-arrowr"></span>
+
+                            <div class="JL-input-datetime">
+                                <input class="JL-input-date date-picker" required ng-model="myparties.endTimeDate"
+                                       type="text"/>
+                                <input class="JL-input-time timepicker" required ng-model="myparties.endTimeTime"
+                                       type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="JL-form-group">
+                        <label class="JL-form-required">地点</label>
+
+                        <div class="JL-input-group">
+                            <!--<select class="JL-select">
+                                <option value="">四川</option>
+                            </select>
+                            <select class="JL-select">
+                                <option value="">成都</option>
+                            </select>-->
+                            <input class="JL-input-group-location" required type="text" name="address"
+                                   ng-model="parties.address" ng-click="showMap()" placeholder="点击选择地址"/>
+                            <span class="JL-input-group-location-icon" ng-click="showMap()"></span>
+                        </div>
+                    </div>
+                    <div class="JL-form-group">
+                        <label class="JL-form-required">详细计划</label>
+
+                        <div class="JL-input-group">
+                            <textarea name="plan" cols="30" required rows="10" ng-model="parties.description"
+                                      placeholder="什么鬼"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="JL-party-create-img">
+                <div class="JL-party-create-content-title">
+                    <h1 class="JL-party-create-content-h1 JL-party-create-icon-2">给活动放置一张漂亮的海报吧</h1>
+                </div>
+                <div class="JL-form-body">
+                    <div class="JL-party-create-img-body">
+                        <div class="JL-party-create-img-body-left">
+                            <i class="JL-party-create-img-camera"></i>
+                            <input type="file" class="JL-create-file" base-sixty-four-input ng-model="myparties.poster"
+                                   name="poster"/>
+                            <input type="hidden" ng-model="myparties.poster2" name="poster2"/>
+                        </div>
+                        <div class="JL-party-create-img-body-right">
+                            <ul>
+                                <li><img src="../images/upload-bg.png" data-src="http://upload-bg.png"/></li>
+                                <li><img src="../images/item-bg.png" data-src="http://item-bg.png"/></li>
+                                <li><img src="../images/item-bg.png" data-src="http://item-bg.png"/></li>
+                                <li><img src="../images/item-bg.png" data-src="http://item-bg.png"/></li>
+                            </ul>
+                        </div>
+                        <div class="JL-party-create-img-remind">
+                            <span>温馨提示：海报可以直接使用默认的，也可以上传自己制作的海报哟！</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="JL-form-action">
+                <button class="JL-btn ">我们聚会吧</button>
+            </div>
+        </form>
+        <script>
+            CreateParty.init();
+        </script>
+    </div>
+    <footer ui-view="footer">
+
+    </footer>
+</div>

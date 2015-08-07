@@ -1,0 +1,158 @@
+<div class="JL-wraper-content">
+    <div class="JL-page-bar">
+        <span>您所在位置：</span>
+        <ul>
+            <li><a ui-sref="myparty">我的聚会</a></li>
+        </ul>
+    </div>
+    <div class="JL-party-content-top">
+        <p class="JL-hidden">相聚如此短暂，回忆永存心里。</p>
+
+        <p class="JL-hidden">离别是为下一次相聚, 下一次的聚会, 只为我们能够更好的狂欢。</p>
+        <label>我的聚会</label>
+    </div>
+    <div class="JL-party-content" ng-controller="myParty">
+        <div class="JL-party-item" ng-repeat="party in parties">
+            <a ng-href="#/detail/{{party.id}}">
+                <div class="JL-party-item-left JL-acitve-state">
+                    <img src="../images/party-item1.jpg" ng-src="{{party.poster}}" alt="夜幕降临，还好有你"/>
+
+                    <div class="JL-party-tag JL-party-plan-cancel"
+                         ng-if="party.partyStatus == 'CANCELED'">
+                        已取消
+                    </div>
+                    <div class="JL-party-tag JL-party-plan-end"
+                         ng-if="party.partyStatus == 'COMPLETED'">
+                        已结束
+                    </div>
+                    <div class="JL-party-tag JL-party-plan-doing"
+                         ng-if="party.partyStatus == 'STARTING'">
+                        已开始
+                    </div>
+                    <div class="JL-party-tag JL-party-planning"
+                         ng-if="party.partyStatus == 'UNSTART'">
+                        未开始
+                    </div>
+                </div>
+            </a>
+
+            <div class="JL-party-item-right">
+                <div class="JL-active-info">
+
+                    <a ng-href="#/detail/{{party.id}}"><label class="JL-active-title"
+                                                              ng-bind="party.title">峨眉山登顶之旅</label></a>
+                    <span class="JL-active-introduce" ng-bind="party.shortDescription">四大佛教名山、金顶看日出</span>
+
+                    <div class="JL-active-time-location">
+                        <div class="JL-active-time">
+                            <span ng-bind="party.startTime | date : 'yyyy年MM月dd日 hh:mm'">2015年7月18日 08:00</span>
+                            <span ng-bind="party.endTime | date : 'yyyy年MM月dd日 hh:mm'">2015年7月19日 18:00</span>
+                        </div>
+                        <div class="JL-active-location">
+                            <span ng-if="party.address" ng-bind="party.address" style="width: 180px;"
+                                  title="{{party.address}}">四川省乐山峨眉山</span>
+                        </div>
+                        <div class="JL-active-state">
+                            <span ng-if="party.partyStatus == 'CANCELED'">活动已取消，快发起新的活动</span>
+                            <span ng-if="party.partyStatus == 'COMPLETED'">活动已结束</span>
+                            <span ng-if="party.partyStatus == 'STARTING'">活动进行中</span>
+                            <span ng-if="party.partyStatus == 'UNSTART'">活动报名中</span>
+                            <a class="JL-btn JL-active-btn" ng-if="party.partyStatus == 'COMPLETED'"
+                               ng-href="#/detail/{{party.id}}">查看详情
+                            </a>
+                            <a class="JL-btn JL-active-btn" ng-if="party.partyStatus == 'STARTING'"
+                               ng-href="#/detail/{{party.id}}">添加回忆
+                            </a>
+                            <button class="JL-btn JL-active-btn" ng-if="party.partyStatus == 'UNSTART'"
+                                    ng-click="showUser(party.id,party.title)">报名管理
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="JL-party-item">
+            <div class="JL-party-item-left JL-acitve-state">
+                <img src="../images/party-item2.jpg" alt="旭日东升，陪你看日出"/>
+
+                <div class="JL-party-tag JL-party-plan-doing">进行中</div>
+            </div>
+            <div class="JL-party-item-right">
+                <div class="JL-active-info">
+                    <label class="JL-active-title">峨眉山登顶之旅</label>
+                    <span class="JL-active-introduce">四大佛教名山、金顶看日出</span>
+
+                    <div class="JL-active-time-location">
+                        <div class="JL-active-time">
+                            <span>2015年7月18日 08:00</span>
+                            <span>2015年7月19日 18:00</span>
+                        </div>
+                        <div class="JL-active-location">
+                            <span>四川省乐山峨眉山</span>
+                        </div>
+                        <div class="JL-active-state">
+                            <span>活动已结束</span>
+                            <a class="JL-btn JL-active-btn" href="">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="JL-party-item">
+            <div class="JL-party-item-left JL-acitve-state">
+                <img src="../images/party-item3.jpg" alt="最难的是开始，更难的是结束"/>
+
+                <div class="JL-party-tag JL-party-planning">可报名</div>
+            </div>
+            <div class="JL-party-item-right">
+                <div class="JL-active-info">
+                    <label class="JL-active-title">峨眉山登顶之旅</label>
+                    <span class="JL-active-introduce">四大佛教名山、金顶看日出</span>
+
+                    <div class="JL-active-time-location">
+                        <div class="JL-active-time">
+                            <span>2015年7月18日 08:00</span>
+                            <span>2015年7月19日 18:00</span>
+                        </div>
+                        <div class="JL-active-location">
+                            <span>四川省乐山峨眉山</span>
+                        </div>
+                        <div class="JL-active-state">
+                            <span>活动已结束</span>
+                            <a class="JL-btn JL-active-btn" href="">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="JL-party-item">
+            <div class="JL-party-item-left JL-acitve-state">
+                <img src="../images/party-item3.jpg" class="JL-cancel" alt="最难的是开始，更难的是结束"/>
+
+                <div class="JL-party-tag JL-party-plan-cancel">已取消</div>
+            </div>
+            <div class="JL-party-item-right">
+                <div class="JL-active-info">
+                    <label class="JL-active-title">峨眉山登顶之旅</label>
+                    <span class="JL-active-introduce">四大佛教名山、金顶看日出</span>
+
+                    <div class="JL-active-time-location">
+                        <div class="JL-active-time">
+                            <span>2015年7月18日 08:00</span>
+                            <span>2015年7月19日 18:00</span>
+                        </div>
+                        <div class="JL-active-location">
+                            <span>四川省乐山峨眉山</span>
+                        </div>
+                        <div class="JL-active-state">
+                            <span>活动已经取消，快发起新的活动</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+    <footer ui-view="footer">
+
+    </footer>
+</div>

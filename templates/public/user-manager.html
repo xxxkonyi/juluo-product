@@ -1,0 +1,50 @@
+<div class="JL-mask-wrapper JL-mask-wrapper-autoheight">
+    <i ng-click="hideUser()">×</i>
+
+    <div class="JL-mask-content JL-mask-content-user">
+        <div class="JL-mask-content-title" ng-bind="partyTitle">
+            天台山之旅，享受夏日清凉
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <td>序号</td>
+                <td>昵称</td>
+                <td>手机</td>
+                <td>邮箱</td>
+                <td>报名时间</td>
+                <td>操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-if="requests.length>0">
+                <td colspan="6">想要参加的小伙伴</td>
+            </tr>
+            <tr ng-repeat="request in requests" ng-if="requests.length>0">
+                <td ng-bind="$index+1"></td>
+                <td ng-bind="request.index"></td>
+                <td ng-bind="request.index"></td>
+                <td ng-bind="request.index"></td>
+                <td ng-bind="request.createdDate | date : 'yyyy年MM月dd日'"></td>
+                <td>
+                    <button class="JL-btn JL-btn-sm" ng-click="agree(request.partyId,request.memberId)">同意</button>
+                    <button class="JL-btn JL-btn-sm JL-btn-red" ng-click="refuse(request.partyId,request.memberId)">拒绝</button>
+                </td>
+            </tr>
+            <tr ng-if="members.length>0">
+                <td colspan="6">已参加的小伙伴</td>
+            </tr>
+            <tr ng-repeat="member in members" ng-if="members.length>0">
+                <td ng-bind="$index+1"></td>
+                <td ng-bind="member.index"></td>
+                <td ng-bind="member.index"></td>
+                <td ng-bind="member.index"></td>
+                <td ng-bind="member.createdDate | date : 'yyyy年MM月dd日 hh:mm'"></td>
+                <td>
+                    <span>已参加</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

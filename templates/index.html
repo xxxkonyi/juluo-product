@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html ng-app="webapp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>聚落|这里是首页君哦</title>
+    <link rel="stylesheet" href="../stylesheets/base.css"/>
+    <link rel="stylesheet" href="../stylesheets/global.css"/>
+    <link rel="stylesheet" href="../stylesheets/plugin.css"/>
+    <link id="ng_load_plugins_before"/>
+</head>
+<body ng-controller="index">
+<header ui-view="header">
+
+</header>
+<div class="JL-wraper" ng-class="wrapperBg" ui-view>
+    <!-- <div class="JL-wraper-content">
+         <div class="JL-index-content-item JL-index-content-top">
+             <p class="JL-hidden">闪烁的霓虹, 你是否愿意带上你的小伙伴, 逃离都市的喧嚣， 找一个安静的地方， 和朋友们来一次用心的交流。</p>
+             <label>生活在这里，我们来聚聚</label>
+             <a href="#" class="JL-btn JL-btn-center-bottom">发起聚会</a>
+         </div>
+         <div class="JL-index-content-item JL-index-content-center">
+             <div class="JL-index-center-item">
+                 <i class="JL-icon-plan"></i>
+                 <label>一种计划</label>
+
+                 <p>每次活动都精心策划，只是为了能够让朋友们更好的享受，每一次活动，不管怎么，有计划的事情总是能够愉快进行。</p>
+             </div>
+             <div class="JL-index-center-item">
+                 <i class="JL-icon-photo"></i>
+                 <label>记得拍照</label>
+
+                 <p>每一次照片的手机，都是活动最好的珍藏，有你们在一起的回忆，就是最美的地方。</p>
+             </div>
+             <div class="JL-index-center-item">
+                 <i class="JL-icon-share"></i>
+                 <label>随时分享</label>
+
+                 <p>与他人分享你们的事情，让你们的聚会成为别人的参考。 分享正能量，创造幸福的一天。</p>
+             </div>
+             <div class="JL-index-center-item">
+                 <i class="JL-icon-story"></i>
+                 <label>写自己的故事</label>
+
+                 <p>在这里你可以记录自己的故事，我们用时间轴来为你保存，属于你的那些年的青春。</p>
+             </div>
+         </div>
+         <div class="JL-index-content-item JL-index-content-bottom">
+             <p class="JL-hidden">那些年我们的故事</p>
+
+             <p class="JL-hidden">
+                 他们来自不同的地方，他们曾经就职于同一个公司。感谢这家让他们相聚的
+                 公司，他们很了解彼此，他们都有共同的爱好：旅游、桌游。他们更喜欢在一起
+                 交流，而不是去做低头一族，他们都有自己的而梦想，希望能够到处去旅游。
+                 他们经常思考，能否有平台能够分享属于每个人自己的故事，他们敢做敢为，
+                 于是就有了18号的成立。
+             </p>
+             <a href="#" class="JL-btn JL-btn-center-bottom">关于我们</a>
+         </div>
+
+         <footer>
+             <div class="footer-left">
+                 <div class="footer-QRcode">
+                     <img src="../images/QRcode.jpg"/>
+                     <span>扫一扫关注我们</span>
+                 </div>
+                 <div class="footer-info">
+                     <p>青春不做低头一族，我们还要有追逐的脚步。</p>
+
+                     <p>闲来无事多聚会，朋友联系常了解<br/>世界之大要畅游，有你陪伴不寂寞。</p>
+                 </div>
+             </div>
+             <div class="footer-right">
+                 <span>联系电话：1354657786</span>
+                 <span>电子邮箱：18hao@hotmail.com</span>
+                 <span>地址：成都市</span>
+             </div>
+         </footer>
+    </div>-->
+</div>
+<div class="JL-mask" ui-view="login" ng-show="loginFormShowOrHide">
+
+</div>
+
+<div class="JL-mask" ui-view="map" ng-show="mapShowOrHide">
+
+</div>
+<div class="JL-mask" ui-view="user" ng-show="userShowOrHide" ng-controller="userjoin">
+
+</div>
+<script src="../scripts/jquery/jquery.min.js"></script>
+<script src="../scripts/angularjs/angular.js"></script>
+<script src="../scripts/angularjs/angular-animate.js"></script>
+<script src="../scripts/angularjs/angular-ui-router.js"></script>
+<script src="../scripts/angularjs/ngStorage.js"></script>
+<script src="../scripts/angularjs/ocLazyLoad.js"></script>
+<script src="../scripts/angularjs/angular-base64-upload.js"></script>
+<script src="../scripts/restangular/lodash.js"></script>
+<script src="../scripts/restangular/restangular.js"></script>
+<script src="../app.js"></script>
+<script src="../scripts/router/route_config.js"></script>
+<script src="../scripts/controller/mainController.js"></script>
+<script src="../scripts/factory/application_context_factory.js"></script>
+<script src="../scripts/factory/auth_restangular_factory.js"></script>
+<script src="../scripts/factory/authentication_factory.js"></script>
+<script src="../scripts/controller/mainController.js"></script>
+<script src="http://api.map.baidu.com/api?v=1.5&ak=589adee1ac283eff20bd642bfa68d1fc"></script>
+</body>
+</html>
